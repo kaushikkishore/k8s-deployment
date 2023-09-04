@@ -15,3 +15,9 @@ Requirements
 - create a proper `Helm charts` so you will end up a `PhoenixServer`
 - Next step is automate this whole process using the `ArgoCD` pipeline process. 
 - 
+
+
+some handy commands 
+
+start minikube mac os 
+`minikube start --driver=qemu --network=socket_vmnet`
