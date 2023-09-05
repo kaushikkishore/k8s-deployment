@@ -16,6 +16,8 @@ Requirements
 - Next step is automate this whole process using the `ArgoCD` pipeline process. 
 - 
 
+Persistent storage for Kubernetes 
+[AWS Document](https://aws.amazon.com/blogs/storage/persistent-storage-for-kubernetes/)
 
 some handy commands 
 

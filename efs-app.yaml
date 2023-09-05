@@ -13,4 +13,10 @@ spec:
     args:
       - "-c"
       - "while true; do echo $(date -u) >> /data/out.txt; sleep 2; done"
-    
+    volumeMounts:
+      - name: persistent-storage
+        mountPath: /data
+  volumes:
+    - name: persistent-storage
+      persistentVolumeClaim:
+        claimName: efs-claim
