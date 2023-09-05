@@ -1,0 +1,67 @@
+# Global settings for the MySQL cluster
+global:
+  mysqlRootPassword: YOUR_ROOT_PASSWORD
+  image:
+    tag: 8.0
+
+# Master node configuration
+master:
+  enabled: true
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: aws-ebs  # Specify the AWS EBS storage class
+  metrics:
+    enabled: false  # Enable if you want Prometheus metrics
+  service:
+    port: 3306
+
+# Replica (slave) node configuration
+replica:
+  enabled: true
+  numberOfReplicas: 2
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: aws-ebs  # Specify the AWS EBS storage class
+  metrics:
+    enabled: false  # Enable if you want Prometheus metrics
+
+# Set the passwords for MySQL users (optional)
+auth:
+  existingSecret: ""
+
+# Database configuration (optional)
+db:
+  name: YOUR_DATABASE_NAME
+  user: YOUR_DATABASE_USER
+  password: YOUR_DATABASE_PASSWORD
+
+# Service configuration (optional)
+service:
+  name: mysql
+  type: ClusterIP
+
+# Network policies (optional)
+networkPolicy:
+  enabled: false
+
+# Pod disruption budget (optional)
+pdb:
+  create: false
+
+# Custom resource definitions (optional)
+customResourceDefinitions:
+  create: true
+
+# Persistent Volume Access Mode (optional)
+persistence:
+  accessMode: ReadWriteOnce
+
+# Enable/disable readiness and liveness probes (optional)
+probe:
+  enabled: true
+
+# Additional environment variables (optional)
+extraVars:
+  MY_VARIABLE: my_value
