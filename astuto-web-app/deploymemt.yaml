@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-web-app-deployment
+  name: astuto-deployment
 spec:
-  replicas: 3   # You can adjust the number of replicas as needed
+  replicas: 1 
   selector:
     matchLabels:
       app: astuto-web
@@ -14,6 +14,17 @@ spec:
     spec:
       containers:
       - name: astuto-web-app
-        image: kaushikkishore/astuto-web-app:v1
+        image: kaushikkishore/astuto-web-app:v107
+        envFrom:
+          - secretRef:
+              name: astuto-secret
         ports:
         - containerPort: 8080
+          name: http-app-port
+          hostPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: http-app-port
+          initialDelaySeconds: 30
+          periodSeconds: 30
