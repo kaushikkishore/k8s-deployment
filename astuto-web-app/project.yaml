@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: astuto-app
+  namespace: argocd
+spec:
+  description: Project for astuto
+  sourceRepos:
+  - "*"
+
+  destinations: 
+  - namespace: "*"
+    server: "*"
+  
+  clusterResourceWhitelist:
+  - group: "*"
+    kind: "*"
+
+  namespaceresourceWhitelist:
+  - group: "*"
+    kind: "*"
