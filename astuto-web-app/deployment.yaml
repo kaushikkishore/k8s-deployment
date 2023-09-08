@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: astuto-web-app
-        image: kaushikkishore/astuto-web-app:
+        image: kaushikkishore/astuto-web-app:b645bcf
         envFrom:
           - secretRef:
               name: astuto-secret
