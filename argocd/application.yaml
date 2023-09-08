@@ -5,12 +5,12 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: guestbook-1
+    namespace: astuto
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: guestbook
-    repoURL: https://github.com/kaushikkishore/argocd-private-repo.git
+    path: astuto-web-app
+    repoURL: https://github.com/kaushikkishore/k8s-deployment.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
